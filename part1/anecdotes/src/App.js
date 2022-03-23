@@ -1,5 +1,14 @@
 import {useState} from 'react'
 
+const Display = ({title, anecdote}) => {
+  return (
+    <>
+      <h1>{title}</h1>
+      <p>{anecdote}</p>
+    </>
+  )
+}
+
 const App = () => {
 
   const generateRandom = () => Math.floor(Math.random() * anecdotes.length)
@@ -26,12 +35,20 @@ const App = () => {
     setVotes(v)
   }
 
+
+  const mostVoted=() => anecdotes[votes.indexOf(Math.max(...votes))]
+
   return (
     <div>
-      {anecdotes[selected]}
+      <Display title="Anecdote of the day" anecdote={anecdotes[selected]} />
+      
       <p>has {votes[selected]} votes.</p>
-      <p><button onClick={()=>setSelected(generateRandom())}>next anectdote</button></p>
-      <p><button onClick={voteHandler}>vote</button></p>
+      <p>
+        <button onClick={voteHandler}>vote</button>
+        <button onClick={()=>setSelected(generateRandom())}>next anectdote</button>
+      </p>
+
+      <Display title="Anecdote with most votes" anecdote={mostVoted()} />
     </div>
   )
 }
