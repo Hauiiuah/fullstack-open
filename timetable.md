@@ -17,5 +17,6 @@
 
 
 ## Part2:
-- Exercise 2.1 - course information
-+ 24.03.2022 20:15 
+- Exercise 2.1 - 2.5 course information
++ 24.03.2022 20:15 21:15 -- 1:00
+
