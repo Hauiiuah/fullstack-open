@@ -49,7 +49,9 @@ const Course = ({course}) => {
 }
 
 const App = () => {
-  const course = {
+  const courses = 
+  [
+    {
     id: 1,
     name: "Half Stack application developtment",
     parts: [
@@ -79,9 +81,29 @@ const App = () => {
         id:5
       }
     ],
-  };
+  },
+  {
+    name: "Node.js",
+    id:2,
+    parts:[
+      {
+        name: 'Routing',
+        exercises: 3,
+        id:1
+      },
+      {
+        name: 'Middlewares',
+        exercises: 7,
+        id: 2
+      }
+    ]
+  }
 
-  return <Course course={course} />
-};
+  ]
+
+  return courses.map((course)=><Course course={course} />)
+   
+
+}
 
 export default App;
