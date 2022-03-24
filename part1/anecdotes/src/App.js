@@ -37,7 +37,7 @@ const App = () => {
 
 
   const mostVoted=() => anecdotes[votes.indexOf(Math.max(...votes))]
-
+  
   return (
     <div>
       <Display title="Anecdote of the day" anecdote={anecdotes[selected]} />
@@ -51,6 +51,7 @@ const App = () => {
       <Display title="Anecdote with most votes" anecdote={mostVoted()} />
     </div>
   )
+
 }
 
 export default App;
