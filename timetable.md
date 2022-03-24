@@ -15,3 +15,7 @@
 - Exercise 1.12 anecdotes step1
 + 23.03.2022 20:45 23:30 -- 2:45
 
+
+## Part2:
+- Exercise 2.1 - course information
++ 24.03.2022 20:15 
