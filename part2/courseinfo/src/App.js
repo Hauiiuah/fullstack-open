@@ -32,7 +32,7 @@ const Total = ({parts}) => {
 
   return (
     <>
-      <p>Number of exercises {total}</p>
+      <p><b>Number of exercises {total}</b></p>
     </>
   );
 };
@@ -72,6 +72,11 @@ const App = () => {
         name: "Eventlistener",
         exercises: 3,
         id: 4
+      },
+      {
+        name: "Redux",
+        exercises: 11,
+        id:5
       }
     ],
   };
