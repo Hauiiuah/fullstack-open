@@ -26,5 +26,5 @@
 - Exercise 2.11 - phonebook
 + 25.03.2022 12:00 12:15 -- 0:15
 
-- Exercise 2.12 countries
-+ 25.03.2022 19:45
+- Exercise 2.12 - 2.14 countries
++ 25.03.2022 19:45 22:30 -- 2:45
