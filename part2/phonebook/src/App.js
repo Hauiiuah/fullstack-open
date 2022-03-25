@@ -1,5 +1,27 @@
 import { useState } from 'react'
 
+
+
+const Filter = ({value, handler}) => <div>filter shown with <input value={value} onChange={handler} /></div>
+const PersonForm = ({nameValue, nameHandler, numberValue,numberHandler, formHandler}) =>{
+  return (<form>
+  <div>
+    name: <input value={nameValue} onChange={nameHandler} />
+  </div>
+  <div>
+    number: <input value={numberValue} onChange={numberHandler} />
+  </div>
+  <div>
+    <button type="submit" onClick={formHandler}>add</button>
+  </div>
+</form>)
+
+}
+
+const Persons = ({persons}) => {
+ return persons.map((person) => <p key={person.name}>{person.name} {person.number}</p>)
+}
+
 const App = () => {
 
   const [persons, setPersons] = useState([
@@ -15,7 +37,21 @@ const App = () => {
 
   const filteredPersons = filter ? persons.filter(person => person.name.toLowerCase().includes(filter.toLowerCase())): persons
 
-  const addNumber = (event) => {
+
+  const filterHandler = (event)=> {
+    setFilter(event.target.value)
+  }
+
+  const newNameHandler = (event)=> {
+    setNewName(event.target.value)
+  }
+
+  const newNumberHandler = (event) => {
+    setNewNumber(event.target.value)
+  }
+
+
+  const formHandler = (event) => {
     event.preventDefault()
 
 
@@ -41,26 +77,18 @@ const App = () => {
     <>
       <h2>Phonebook</h2>
 
-      <div>
-        filter shown with <input value={filter} onChange={(event)=> setFilter(event.target.value)} />
-      </div>
-
+      <Filter value={filter} handler={filterHandler} />
         <h2>add a new</h2>
-      <form>
-        <div>
-          name: <input value={newName} onChange={(event) => setNewName(event.target.value)} />
-        </div>
-        <div>
-          number: <input value={newNumber} onChange={(event) => setNewNumber(event.target.value)} />
-        </div>
-        <div>
-          <button type="submit" onClick={addNumber}>add</button>
-        </div>
-      </form>
+
+      <PersonForm nameValue ={newName} nameHandler={newNameHandler} numberValue={newNumber} numberHandler={newNumberHandler} formHandler={formHandler} />
+    
       <h2>Numbers</h2>
-      {filteredPersons.map((person) => <p key={person.name}>{person.name} {person.number}</p>)}
+      <Persons persons={filteredPersons} />
+      
     </>
   )
 }
 
 export default App;
+
+
