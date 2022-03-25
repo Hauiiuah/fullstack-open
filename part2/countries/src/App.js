@@ -25,7 +25,7 @@ const App = () => {
 
   const [countries, setCountries] = useState([])
   const [countrieFilter, setCountrieFilter]=useState('')
-
+  const [selected,setSelected]=useState(false)
 
   const filtered = countrieFilter ? countries.filter(country => country.name.common.toLowerCase().includes(countrieFilter.toLowerCase())) : countries
  
@@ -38,14 +38,21 @@ const App = () => {
 
 
   let display
+  if(selected){
+    display=<Display country={selected} />
+  }
+  else{
+
+  
   if(filtered.length > 10){
     display=<p>Too many matches, specify another filter</p>
-  }else if(filtered.length ==1 )
+  }else if(filtered.length ===1 )
   {
     display=<Display country={filtered[0]} />
   }else
   {
-    display=filtered.map( country => <p key={country.name.common}>{country.name.common}</p>)
+    display=filtered.map( country => <p key={country.name.common}>{country.name.common} <button onClick={() => setSelected(country)}>show</button></p>)
+  }
   }
 
 
@@ -53,7 +60,10 @@ const App = () => {
 
   return (
     <>
-      find countries <input value={countrieFilter} onChange={(event) => setCountrieFilter(event.target.value)} />
+      find countries <input value={countrieFilter} onChange={(event) => {
+        setCountrieFilter(event.target.value)
+        setSelected(false)
+        }} />
 
       <hr />
       {display}
