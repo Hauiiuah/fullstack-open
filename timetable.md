@@ -20,3 +20,5 @@
 - Exercise 2.1 - 2.5 course information
 + 24.03.2022 20:15 21:15 -- 1:00
 
+- Exercose 2.6 - 2. phonebook
++ 25.03.2022 10:00 
