@@ -22,3 +22,6 @@
 
 - Exercise 2.6 - 2.10 phonebook
 + 25.03.2022 9:00 11:00 -- 2:00
+
+- Exercise 2.11 - phonebook
++ 25.03.2022 12:00 -- 
