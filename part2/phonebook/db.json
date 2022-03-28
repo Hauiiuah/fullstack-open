@@ -19,6 +19,16 @@
       "name": "Mary Poppendieck",
       "number": "39-23-6423122",
       "id": 4
+    },
+    {
+      "name": "Haui",
+      "number": "234",
+      "id": 5
+    },
+    {
+      "name": "Bertram",
+      "number": "199000",
+      "id": 6
     }
   ]
 }
