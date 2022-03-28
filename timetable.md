@@ -32,5 +32,5 @@
 - Exercise 2.15 - 2.18 phonebook
 + 28.03.2022 21:00 21:45 -- 0:45
 
-- Exercise 2.19 - phonebook
-+ 28.03.2022 22:00 --
+- Exercise 2.19 - 2.20 phonebook
++ 28.03.2022 22:00 23.15 -- 1:15 
