@@ -19,6 +19,17 @@ const PersonForm = ({nameValue, nameHandler, numberValue,numberHandler, formHand
 
 }
 
+const Notification = ({message}) => {
+  if(message === null) {
+    return null
+  }
+
+  return (
+    <div className='success'>
+      {message}
+    </div>
+  )
+}
 
 
 const Persons = ({persons, removeCallback}) => {
@@ -31,6 +42,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [filter, setFilter] = useState('')
+  const [errorMessage, setErrorMessage] = useState(null)
 
   const filteredPersons = filter ? persons.filter(person => person.name.toLowerCase().includes(filter.toLowerCase())): persons
 
@@ -86,6 +98,8 @@ const App = () => {
           setPersons(persons.concat(returnedPerson))
           
         })
+        setErrorMessage(`${newPerson.name} succesfull added`)
+        setTimeout(()=> setErrorMessage(null),5000)
     }
     setNewName('')
     setNewNumber('')
@@ -94,7 +108,7 @@ const App = () => {
   return (
     <>
       <h2>Phonebook</h2>
-
+      <Notification message={errorMessage} />
       <Filter value={filter} handler={filterHandler} />
         <h2>add a new</h2>
 
