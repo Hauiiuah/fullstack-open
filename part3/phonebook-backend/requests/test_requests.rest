@@ -1,0 +1,39 @@
+### GET_ALL
+GET http://localhost:3001/api/persons
+
+### DELETE ENTRY
+DELETE http://localhost:3001/api/persons/2
+
+### ADD_ENTRY
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name":"Bob McLaren",
+    "number":"143-57894930"
+}
+
+### Add_Entry with missing name
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "number":"10049938"
+}
+
+### Add_Entry with missing number
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name":"Willi Wonka"
+}
+
+### Add_Entry with duplicate name
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{   
+    "name":"Willy Wonka",
+    "number":"10049938"
+}

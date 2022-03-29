@@ -34,3 +34,8 @@
 
 - Exercise 2.19 - 2.20 phonebook
 + 28.03.2022 22:00 23.15 -- 1:15 
+
+
+## Part3:
+- Exercise 3.1 phonebook backend
++ 29.03.2022 20:00
