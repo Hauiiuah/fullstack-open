@@ -2,6 +2,9 @@ import express  from "express"
 import morgan from "morgan"
 import cors from 'cors'
 
+
+import Person from "./models/person.js"
+
 const app = express()
 
 app.use(express.json())
@@ -12,44 +15,20 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :b
 
 app.use(cors())
 
-let persons = [{ 
-    "id": 1,
-    "name": "Arto Hellas", 
-    "number": "040-123456"
-  },
-  { 
-    "id": 2,
-    "name": "Ada Lovelace", 
-    "number": "39-44-5323523"
-  },
-  { 
-    "id": 3,
-    "name": "Dan Abramov", 
-    "number": "12-43-234345"
-  },
-  { 
-    "id": 4,
-    "name": "Mary Poppendieck", 
-    "number": "39-23-6423122"
-  }]
-
-
 
 app.get('/api/persons',(request,response) => {
-    response.json(persons)
+    Person.find({}).then(result=>{
+        response.json(result)
+    })
 })
 
 
 app.get('/api/persons/:id', (request,response) => {
-    const pId = Number(request.params.id)
-    const person = persons.find(f => f.id ===pId)
-    if(person){
-        response.json(person)
-    }
-    else
-    {
-        response.sendStatus(404).end()
-    }
+
+    Person.findById(request.params.id).then(result => {
+        response.json(result)
+    })
+    
 })
 
 app.get('/info',(request,response) => {
@@ -61,31 +40,32 @@ app.get('/info',(request,response) => {
 
 
 app.delete('/api/persons/:id',(request,response) => {
-    const pId = Number(request.params.id)
-    persons = persons.filter(p => p.id !==pId)
-    response.status(204).end()
+
+    Person.deleteOne({id: request.params.id}).then(result => {
+        response.status(204).end()
+    })
+
 })
 
 app.post('/api/persons/',(request,response) => {
     const body = request.body
 
-    if(!body.name){
+    if(body.name===""){
         return response.status(400).json({error:"No name submitted"})
     }
 
-    if(!body.number){
+    if(body.number===""){
         return response.status(400).json({error: "No number submitted"})
     }
 
-    if(persons.find(p => p.name === body.name)){
-        return response.status(400).json({error: "name must be unique"})
-    }
+    const person = new Person({
+        name: body.name,
+        number: body.number
+    })
 
-
-    body.id =Math.floor(Math.random()*498390)
-    persons = persons.concat(body)
-    response.status(200).json(body)
-    
+    person.save().then(result=>{
+        response.status(200).json(result)
+    })    
 
 })
 

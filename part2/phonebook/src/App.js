@@ -33,7 +33,7 @@ const Notification = ({msg}) => {
 
 
 const Persons = ({persons, removeCallback}) => {
- return persons.map((person) => <p key={person.name}>{person.name} {person.number} <button onClick={()=>removeCallback(person)}>Delete</button></p>)
+ return persons.map((person) => <p key={person.id}>{person.name} {person.number} <button onClick={()=>removeCallback(person)}>Delete</button></p>)
 }
 
 const App = () => {
@@ -100,11 +100,12 @@ const App = () => {
     else {
       PersonService.create(newPerson)
         .then(returnedPerson => {
-          setPersons(persons.concat(returnedPerson))
+            console.log(returnedPerson)
+            setPersons(persons.concat(returnedPerson))
+            setMessage({message:`${newPerson.name} succesfull added`,success: true })
+            setTimeout(()=> setMessage(null),5000)  
           
         })
-        setMessage({message:`${newPerson.name} succesfull added`,success: true })
-        setTimeout(()=> setMessage(null),5000)
     }
     setNewName('')
     setNewNumber('')

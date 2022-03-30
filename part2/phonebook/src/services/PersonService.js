@@ -19,9 +19,10 @@ const update = (id,newPerson) => {
     return axios.put(`${baseURL}/${id}`,newPerson).then(response=>response.data)
 }
 
-export default {
+const allServices = {
     getAll,
     create,
     removePerson,
     update
 }
+export default allServices

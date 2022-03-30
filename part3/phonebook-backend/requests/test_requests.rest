@@ -1,8 +1,15 @@
 ### GET_ALL
 GET http://localhost:3001/api/persons
 
+
+### Get specific
+GET http://localhost:3001/api/persons/6243b62556a4aa733aab8554
+
+### Get specific errpr
+GET http://localhost:3001/api/persons/624
+
 ### DELETE ENTRY
-DELETE http://localhost:3001/api/persons/2
+DELETE http://localhost:3001/api/persons/62441ca78ef990124bdce0d1
 
 ### ADD_ENTRY
 POST http://localhost:3001/api/persons
