@@ -41,22 +41,13 @@ app.get('/info',(request,response) => {
 
 app.delete('/api/persons/:id',(request,response) => {
 
-    Person.deleteOne({id: request.params.id}).then(result => {
+    Person.findByIdAndDelete(request.params.id).then(result => {
         response.status(204).end()
     })
-
 })
 
 app.post('/api/persons/',(request,response) => {
     const body = request.body
-
-    if(body.name===""){
-        return response.status(400).json({error:"No name submitted"})
-    }
-
-    if(body.number===""){
-        return response.status(400).json({error: "No number submitted"})
-    }
 
     const person = new Person({
         name: body.name,
