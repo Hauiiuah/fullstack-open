@@ -1,5 +1,6 @@
-import express  from "express";
+import express  from "express"
 import morgan from "morgan"
+import cors from 'cors'
 
 const app = express()
 
@@ -9,6 +10,7 @@ morgan.token("body",(req,res) => {
 })
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
 
+app.use(cors())
 
 let persons = [{ 
     "id": 1,
@@ -87,7 +89,7 @@ app.post('/api/persons/',(request,response) => {
 
 })
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}`)
 })
