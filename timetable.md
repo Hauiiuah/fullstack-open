@@ -46,7 +46,8 @@
 - Exercise 3.9 - 3.11 phonebook backend
 + 30.03.2022 00:30 00:45 -- 0:15
 
-- Exercise 3.12  phonebook backend
-+ 30.03.2022 01:30 02:00 -- 0:30
+- Exercise 3.12 - 3.14  phonebook backend
++ 30.03.2022 01:30 03:00 -- 1:30
 
-- Exercise 3.13
+- Exercise 3.15 - 3.18 phonebook
++ 31.03.2022 11:15
