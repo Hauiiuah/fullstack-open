@@ -49,8 +49,8 @@ POST http://localhost:3001/api/persons
 Content-Type: application/json
 
 {   
-    "name":"Willy Wonka",
-    "number":"10049938"
+    "name":"Willy Wonka2",
+    "number":"10-4993999"
 }
 
 ### Update Entry 
