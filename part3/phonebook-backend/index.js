@@ -4,7 +4,6 @@ import cors from 'cors'
 
 
 import Person from "./models/person.js"
-import e from "express"
 
 const app = express()
 
@@ -16,6 +15,7 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :b
 
 app.use(cors())
 
+app.use(express.static('build'))
 
 app.get('/api/persons',(request,response) => {
     Person.find({}).then(result=>{
