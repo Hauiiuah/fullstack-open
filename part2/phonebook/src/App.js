@@ -104,8 +104,11 @@ const App = () => {
             setPersons(persons.concat(returnedPerson))
             setMessage({message:`${newPerson.name} succesfull added`,success: true })
             setTimeout(()=> setMessage(null),5000)  
-          
+          })
+        .catch(error => {
+          console.log(error)
         })
+
     }
     setNewName('')
     setNewNumber('')
