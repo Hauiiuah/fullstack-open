@@ -1,0 +1,14 @@
+
+### GET ALL
+GET http://localhost:3001/api/blogs
+
+### POST REQUEST
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+
+{
+  "title":"Hello World",
+  "author":"Jan Haubrock",
+  "url":"http://www.jan-haubrock.de/blog",
+  "likes":30
+}
