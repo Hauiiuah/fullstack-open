@@ -72,6 +72,6 @@
 
 ## Part4:
 
-- Exercise 4.1 Bloglist
+- Exercise 4.1 - 4.2 Bloglist
 
-* 01.04.2022 00:15
+* 01.04.2022 00:15 01:00 -- 0:45
