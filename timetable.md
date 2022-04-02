@@ -60,5 +60,10 @@
 - Exercise 4.1 - 4.2 Bloglist
   -- 01.04.2022 00:15 01:00 -- 0:45
 
-- Exercise 4.3 - Bloglist
-  -- 01.04.2022 
+- Exercise 4.3 - 4.6 Bloglist
+  -- 01.04.2022 17:00 20:00 -- 3:00
+
+- Exercise 4.7 Bloglist
+  -- 01.04.2022 20:00 21:30 -- 1:30
+
+  

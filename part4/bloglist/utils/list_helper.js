@@ -20,6 +20,13 @@ const favoriteBlog = (blogs) => {
   return favBlog
 }
 
+const maxValOfObject = (obj) => {
+  const maxVal = Math.max(...Object.values(obj))
+  const objKey = Object.keys(obj).find((key) => obj[key] === maxVal)
+
+  return [objKey, maxVal]
+}
+
 const mostBlogs = (blogs) => {
   if (blogs.length === 0) {
     return {}
@@ -35,9 +42,27 @@ const mostBlogs = (blogs) => {
     }
   })
 
-  const maxVal = Math.max(...Object.values(authors))
-  const objKey = Object.keys(authors).find((key) => authors[key] === maxVal)
+  const [objKey, maxVal] = maxValOfObject(authors)
   return { author: objKey, blogs: maxVal }
 }
 
-export default { dummy, totalLikes, favoriteBlog, mostBlogs }
+const mostLikes = (blogs) => {
+  if (blogs.length === 0) {
+    return {}
+  }
+
+  const authors = {}
+
+  blogs.map((blog) => {
+    if (authors[blog.author]) {
+      authors[blog.author] += blog.likes
+    } else {
+      authors[blog.author] = blog.likes
+    }
+  })
+
+  const [objKey, maxVal] = maxValOfObject(authors)
+  return { author: objKey, likes: maxVal }
+}
+
+export default { dummy, totalLikes, favoriteBlog, mostBlogs, mostLikes }
