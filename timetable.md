@@ -66,4 +66,5 @@
 - Exercise 4.7 Bloglist
   -- 01.04.2022 20:00 21:30 -- 1:30
 
-  
+- Exercise 4.8 Bloglist test API
+  -- 03.04.2022 13:30 --
