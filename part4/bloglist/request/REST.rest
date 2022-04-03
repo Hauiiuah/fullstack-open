@@ -12,3 +12,31 @@ Content-Type: application/json
   "url":"http://www.jan-haubrock.de/blog",
   "likes":30
 }
+
+### POST REQUEST Missing URL
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+
+{
+  "title":"Hello World",
+  "author":"Jan Haubrock"
+}
+
+### POST REQUEST Missing Title
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+
+{
+  "author":"Jan Haubrock",
+  "url":"http://www.jan-haubrock.de/blog" 
+}
+
+### POST REQUEST Missing Likes
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+
+{
+  "author":"Jan Haubrock",
+  "url":"http://www.jan-haubrock.de/blog",
+  "title":"Who you gonna call"
+}
