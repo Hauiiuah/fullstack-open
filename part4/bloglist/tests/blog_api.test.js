@@ -65,18 +65,37 @@ test('create a new blog with missing likes get defaulted to 0', async () => {
 
 test('respond with bad request (400) if title and url are missing', async () => {
   const blogMissingURL = {
-    author:'Hauilicious',
-    title:'Who you gonna call?'
+    author: 'Hauilicious',
+    title: 'Who you gonna call?',
   }
 
   const blogMissingTitle = {
     author: 'Hauilicious',
-    url:'http://localhost'
+    url: 'http://localhost',
   }
-  await api
-      .post('/api/blogs')
-      .send(blogMissingURL)
-      .expect(400)
+  await api.post('/api/blogs').send(blogMissingURL).expect(400)
+  await api.post('/api/blogs').send(blogMissingTitle).expect(400)
+})
 
+test('a single blog can be deleted', async () => {
+  const blogs = await helper.blogsInDb()
+  const idToBeDeleted = blogs[0].id
 
+  await api.delete(`/api/blogs/${idToBeDeleted}`).expect(204)
+
+  const blogsAtEnd = await helper.blogsInDb()
+  expect(blogsAtEnd).toHaveLength(helper.initialBlogs.length - 1)
+})
+
+test('a blog can be updated. likes will be increased', async () => {
+  const blogs = await helper.blogsInDb()
+  const blogToEdit = blogs[0]
+
+  const result = await api
+    .put(`/api/blogs/${blogToEdit.id}`)
+    .send({ likes: 1500 })
+    .expect(200)
+
+  console.log(result.body)
+  expect(result.body.likes).not.toEqual(blogToEdit.likes)
 })

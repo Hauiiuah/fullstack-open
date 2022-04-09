@@ -40,3 +40,12 @@ Content-Type: application/json
   "url":"http://www.jan-haubrock.de/blog",
   "title":"Who you gonna call"
 }
+
+### PUT Request with ID
+PUT http://localhost:3001/api/blogs/624a228a2039b0b796859cbf
+Content-Type: application/json
+
+{
+  "author" :"Edsger W. Dijkstra",
+  "likes":"15"
+}
