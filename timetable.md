@@ -89,3 +89,6 @@
 
 - Exercise 4.20 Bloglist move token extraction to middleware
   -- 17.04.2022 15:45 - 16:00 -- 0:15
+
+- Exercise 4.21 Bloglist delete blog with correct authorization
+  -- 17.04.2022 16:00 - 16:15 -- 0:15

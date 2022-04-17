@@ -16,10 +16,10 @@ Content-Type: application/json
 ### POST REQUEST with Authorization
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhhdWkiLCJpZCI6IjYyNTU0ZTYzM2M2NjRjZmM2MWJkNmRlMiIsImlhdCI6MTY1MDIxMDQ1MCwiZXhwIjoxNjUwMjE0MDUwfQ.egAy5fgEkD6NelysuJMmDuvFQQI6_690t27EMpuJaB4
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhhdWkiLCJpZCI6IjYyNTU0ZTYzM2M2NjRjZmM2MWJkNmRlMiIsImlhdCI6MTY1MDIxMTc3MCwiZXhwIjoxNjUwMjE1MzcwfQ.7o_uFwVgpNdknHJIakHNEQ9jfpYYEp2AZxHc9LSflxM
 
 {
-  "title":"Hello World",
+  "title":"Hello World is a nice feature would",
   "author":"Jan Haubrock",
   "url":"http://www.jan-haubrock.de/blog",
   "likes":30
@@ -61,3 +61,20 @@ Content-Type: application/json
   "author" :"Edsger W. Dijkstra",
   "likes":"15"
 }
+
+### Delete Request without Authorization
+DELETE http://localhost:3001/api/blogs/625c3812f6c4965d8a10736c
+Content-Type: application/json
+
+
+### Delete Request with Authorization
+DELETE http://localhost:3001/api/blogs/625c3bd9bf5352b0b97383d4
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhhdWkiLCJpZCI6IjYyNTU0ZTYzM2M2NjRjZmM2MWJkNmRlMiIsImlhdCI6MTY1MDIxMDQ1MCwiZXhwIjoxNjUwMjE0MDUwfQ.egAy5fgEkD6NelysuJMmDuvFQQI6_690t27EMpuJaB4
+
+
+
+### Delete Request with wrong user Authorization
+DELETE http://localhost:3001/api/blogs/625c3bd9bf5352b0b97383d4
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhhdWkyIiwiaWQiOiI2MjVjM2I5OWJmNTM1MmIwYjk3MzgzY2MiLCJpYXQiOjE2NTAyMTE4MjUsImV4cCI6MTY1MDIxNTQyNX0.GqCiOzj6_adq6BEqQDOlIoWaz5orOhcwB4wbASoxu3M
