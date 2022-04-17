@@ -5,14 +5,18 @@ const blogSchema = new mongoose.Schema({
   author: String,
   url: String,
   likes: Number,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
 })
 
 blogSchema.set('toJSON', {
-  transform: (document,retObj) => {
+  transform: (document, retObj) => {
     retObj.id = retObj._id.toString()
     delete retObj._id
     delete retObj.__v
-  }
+  },
 })
 
 const Blog = mongoose.model('Blog', blogSchema)
