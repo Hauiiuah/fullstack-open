@@ -86,3 +86,6 @@
 
 - Exercise 4.18 - 4.19 Bloglist Token Authentication
   -- 17.04.2022 11:30 13:00 -- 1:30
+
+- Exercise 4.20 Bloglist move token extraction to middleware
+  -- 17.04.2022 15:45 - 16:00 -- 0:15
