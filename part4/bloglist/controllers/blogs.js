@@ -4,6 +4,8 @@ import jwt from 'jsonwebtoken'
 import Blog from '../models/blogs.js'
 import User from '../models/user.js'
 
+import middleware from '../utils/middleware.js'
+
 const blogRouter = Router()
 
 blogRouter.get('/', async (request, response) => {
@@ -11,52 +13,54 @@ blogRouter.get('/', async (request, response) => {
   response.json(blogs)
 })
 
-blogRouter.post('/', async (request, response, next) => {
-  const decodedToken = jwt.verify(request.token, process.env.SECRET)
-  if (!decodedToken.id) {
-    return response.status(401).json({ error: 'token missing or invalid' })
+blogRouter.post(
+  '/',
+  middleware.userExtractor,
+  async (request, response, next) => {
+    const user = request.user
+    const blog = new Blog(request.body)
+
+    blog.user = user._id
+
+    console.log('Blog', blog)
+
+    if (!blog.likes) {
+      blog.likes = 0
+    }
+    if (!blog.url) {
+      return response.status(400).send({ error: 'Missing URL' })
+    }
+
+    if (!blog.title) {
+      return response.status(400).send({ error: 'Missing title' })
+    }
+    const savedBlog = await blog.save()
+    user.blogs = user.blogs.concat(savedBlog._id)
+    await user.save()
+    response.status(201).json(savedBlog)
   }
-  const user = await User.findById(decodedToken.id)
-  const blog = new Blog(request.body)
+)
 
-  blog.user = user._id
+blogRouter.delete(
+  '/:id',
+  middleware.userExtractor,
+  async (request, response) => {
+    const blog = await Blog.findById(request.params.id)
 
-  console.log('Blog', blog)
+    if (!blog) {
+      return response.status(404).json({ error: 'Blog not found !!!!' })
+    }
 
-  if (!blog.likes) {
-    blog.likes = 0
+    if (blog.user.toString() === request.user.id.toString()) {
+      await Blog.findByIdAndRemove(request.params.id)
+      return response.status(204).end()
+    }
+
+    return response
+      .status(401)
+      .json({ error: 'request permittet. couldnt authorize' })
   }
-  if (!blog.url) {
-    return response.status(400).send({ error: 'Missing URL' })
-  }
-
-  if (!blog.title) {
-    return response.status(400).send({ error: 'Missing title' })
-  }
-  const savedBlog = await blog.save()
-  user.blogs = user.blogs.concat(savedBlog._id)
-  await user.save()
-  response.status(201).json(savedBlog)
-})
-
-blogRouter.delete('/:id', async (request, response) => {
-  const decodedToken = jwt.verify(request.token, process.env.SECRET)
-  if (!decodedToken.id) {
-    return response.status(401).json({ error: 'token missing or invalid' })
-  }
-
-  //const user = await User.findById(decodedToken.id)
-  const blog = await Blog.findById(request.params.id)
-
-  if (blog.user.toString() === decodedToken.id.toString()) {
-    await Blog.findByIdAndRemove(request.params.id)
-    return response.status(204).end()
-  }
-
-  return response
-    .status(401)
-    .json({ error: 'request permittet. couldnt authorize' })
-})
+)
 
 blogRouter.put('/:id', async (request, response) => {
   const blog = { ...request.body }
