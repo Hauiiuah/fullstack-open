@@ -76,10 +76,13 @@
   -- 09.04.2022 00:00 01:00 -- 1:00
 
 - Exercise 4.15 Bloglist login
-  -- 12.04.2022 08:30  09:30 -- 1:00
+  -- 12.04.2022 08:30 09:30 -- 1:00
 
 - Exercise 4.16 Bloglist Test / UserCreation
   -- 17.04.2022 08:00 10:30 -- 2:30
 
-- Exercise 4.17 Bloglist  User -> Blogs Relationship
-  -- 17.04.2022 10:30 
+- Exercise 4.17 Bloglist User -> Blogs Relationship
+  -- 17.04.2022 10:30 11:30 -- 1:00
+
+- Exercise 4.18 - 4.19 Bloglist Token Authentication
+  -- 17.04.2022 11:30 13:00 -- 1:30
