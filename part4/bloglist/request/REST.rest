@@ -37,6 +37,7 @@ Content-Type: application/json
 ### POST REQUEST Missing Title
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhhdWkiLCJpZCI6IjYyNTU0ZTYzM2M2NjRjZmM2MWJkNmRlMiIsImlhdCI6MTY1MDIyMjY0NywiZXhwIjoxNjUwMjI2MjQ3fQ.0RE7DCjnb3akFGJHX0QUOWQgiwtxPoxmyuav8z3IZdQ
 
 {
   "author":"Jan Haubrock",
@@ -78,3 +79,8 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imhhd
 DELETE http://localhost:3001/api/blogs/625c4083e4c76145629f9ecb
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhhdWkyIiwiaWQiOiI2MjVjM2I5OWJmNTM1MmIwYjk3MzgzY2MiLCJpYXQiOjE2NTAyMTE4MjUsImV4cCI6MTY1MDIxNTQyNX0.GqCiOzj6_adq6BEqQDOlIoWaz5orOhcwB4wbASoxu3M
+
+
+### Delete Request without Authorization
+DELETE http://localhost:3001/api/blogs/625c4083e4c76145629f9ecb
+Content-Type: application/json

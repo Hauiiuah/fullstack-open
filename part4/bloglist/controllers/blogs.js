@@ -22,12 +22,11 @@ blogRouter.post(
 
     blog.user = user._id
 
-    console.log('Blog', blog)
-
     if (!blog.likes) {
       blog.likes = 0
     }
     if (!blog.url) {
+      console.log('blog url missing:', blog.url)
       return response.status(400).send({ error: 'Missing URL' })
     }
 
