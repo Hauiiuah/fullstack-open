@@ -1,0 +1,49 @@
+
+### Create User
+post http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "username": "haui",
+  "name": "Jan Haubrock",
+  "password":"test"
+}
+
+
+### Create User, password to short
+post http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "username": "haui",
+  "name": "Jan Haubrock",
+  "password":"te"
+}
+
+### Create User, no password given
+post http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "username": "haui",
+  "name": "Jan Haubrock"
+}
+
+### Create User, username to short
+post http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "username": "ha",
+  "name": "Jan Haubrock",
+  "password":"hello world"
+}
+
+### Create User, no username given
+post http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "name": "Jan Haubrock",
+  "password":"hello world"
+}

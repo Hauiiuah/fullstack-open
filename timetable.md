@@ -53,7 +53,7 @@
   --31.03.2022 11:15 12:15 -- 1:00
 
 - Exercise 3.19 - 3.22 phonebook
-  -- 31.03.2022 14:15 16:15 -- 2:00   
+  -- 31.03.2022 14:15 16:15 -- 2:00
 
 ## Part4:
 
@@ -72,5 +72,14 @@
 - Exercise 4.9 - 4.12 Bloglist test API
   -- 03.04.2022 22:00 23:00 -- 1:00
 
-- Exercise 4.13 Blog list expansion
-  -- 09.04.2022 00:00 
+- Exercise 4.13 - 4.14 Blog list expansion
+  -- 09.04.2022 00:00 01:00 -- 1:00
+
+- Exercise 4.15 Bloglist login
+  -- 12.04.2022 08:30  09:30 -- 1:00
+
+- Exercise 4.16 Bloglist Test / UserCreation
+  -- 17.04.2022 08:00 10:30 -- 2:30
+
+- Exercise 4.17 Bloglist  User -> Blogs Relationship
+  -- 17.04.2022 10:30 

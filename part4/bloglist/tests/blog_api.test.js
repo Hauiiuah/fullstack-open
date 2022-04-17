@@ -96,6 +96,9 @@ test('a blog can be updated. likes will be increased', async () => {
     .send({ likes: 1500 })
     .expect(200)
 
-  console.log(result.body)
   expect(result.body.likes).not.toEqual(blogToEdit.likes)
+})
+
+afterAll(() => {
+  mongoose.connection.close()
 })
